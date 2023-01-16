@@ -100,11 +100,6 @@ if [ ! -f \$NODE_SAFE_PATH ]; then
   # Install node-safe globally if missing for ultimate convenience (can happen when nvm switches node versions)
   VANILLA_NPM_PATH="\$(get_vanilla_product_path \$NODE_SAFE_VANILLA_NODE_PATH npm)"
   echo "node-safe not found (checked at: \$NODE_SAFE_PATH)"
-  echo "running \$VANILLA_NPM_PATH install --global ${NS_NPM_PACKAGE}"
-  \$NODE_SAFE_VANILLA_NODE_PATH \$VANILLA_NPM_PATH install --global ${NS_NPM_PACKAGE}
-fi
-if [ ! -f \$NODE_SAFE_PATH ]; then
-  echo "Apologies, unable to find or install node-safe. :-("
   echo "We're expecting it to be here but it's not: \$NODE_SAFE_PATH "
   echo "Please report this issue: ${NS_ISSUE_URL}"
   echo "For the time being disable shell integration at ${CURRENT_DIR}"

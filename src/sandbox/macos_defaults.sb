@@ -28,8 +28,6 @@
     (literal "/dev/random")
     (literal "/dev/urandom")
     (literal "/dev/")
-    (literal "/private/etc/master.passwd")
-    (literal "/private/etc/passwd")
 )
 
 (allow file-read* file-write-data

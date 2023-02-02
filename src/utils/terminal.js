@@ -34,6 +34,7 @@ function envForceColor() {
 
 function _supportsColor(haveStream, { streamIsTTY, sniffFlags = false } = {}) {
   const noFlagForceColor = envForceColor()
+  let flagForceColor;
   if (noFlagForceColor !== undefined) {
     flagForceColor = noFlagForceColor
   }

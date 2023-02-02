@@ -28,6 +28,12 @@
     (literal "/dev/random")
     (literal "/dev/urandom")
     (literal "/dev/")
+    (literal "/")
+)
+
+; Rosetta specific files
+(allow file-read*
+    (subpath "/Library/Apple/usr/libexec/oah/")
 )
 
 (allow file-read* file-write-data

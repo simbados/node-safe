@@ -46,7 +46,6 @@ function parse(configRoot, { packageManager }) {
   const filePath = path.join(configRoot, configFileName)
   const data = fs.readFileSync(filePath).toString()
 
-  const fail = () => ({ hasFailed: true, filePath })
   const empty = () => ({ isEmpty: true, filePath, success: true })
   if (!data.trim()) {
     return empty()
@@ -55,9 +54,9 @@ function parse(configRoot, { packageManager }) {
   try {
     configData = JSON.parse(data)
   } catch (err) {
-    console.warn(`Warning: ${filePath} is malformed, ignoring.`)
+    console.warn(`Warning: ${filePath} is malformed, stopping.`)
     console.warn(err)
-    return fail()
+    process.exit(0);
   }
   if (!Object.keys(configData).length) {
     return empty()

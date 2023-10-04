@@ -84,3 +84,8 @@
 ; I'm not sure if we should move this into the `--allow-run` block though
 (allow signal)
 
+; Allow connect to localhost
+(allow network*
+       (to ip "localhost:*"))
+(allow network-inbound
+       (from ip "localhost:*"))

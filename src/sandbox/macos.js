@@ -89,9 +89,10 @@ const packageScript = (ctx) => {
 ; A package manager has been called: ${ctx.packageManager.name}
 ; Allow read/write file access to package manager configs
 (allow file-read* file-write*
-  ;(literal "${ctx.paths.home}/.npmrc")
   ;(regex #"^/Users/[^.]+/.npm")
   (regex #"^/Users/[^.]+/.npm/(.*)")
+  (literal "${ctx.paths.packageRoot}/.npmrc")
+  (literal "${ctx.paths.home}/.npmrc")
   (subpath "${ctx.paths.packageRoot || ctx.paths.cwd}/node_modules")
   ; NPM is really aggressive in traversing the directories and reading package.json files
   (literal "${ctx.paths.packageRoot || ctx.paths.cwd}/package.json")
